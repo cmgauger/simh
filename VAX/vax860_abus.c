@@ -1,6 +1,6 @@
 /* vax860_abus.c: VAX 8600 A-Bus
 
-   Copyright (c) 2011-2012, Matt Burke
+   Copyright (c) 2011-2025, Matt Burke
    This module incorporates code from SimH, Copyright (c) 2004-2008, Robert M Supnik
 
    Permission is hereby granted, free of charge, to any person obtaining a
@@ -26,6 +26,7 @@
 
    abus                 bus controller
 
+   09-Jan-2025  CMG     SID register updates
    26-Dec-2012  MB      First Version
 */
 
@@ -447,7 +448,7 @@ switch (rg) {
 
     case MT_SID:                                        /* SID */
         if (sys_model)
-            val = VAX860_SID | VAX865_TYP | VAX860_ECO | VAX860_PLANT | VAX860_SN;
+            val = VAX860_SID | VAX865_TYP | VAX865_ECO | VAX865_PLANT | VAX865_SN;
         else
             val = VAX860_SID | VAX860_TYP | VAX860_ECO | VAX860_PLANT | VAX860_SN;
         break;

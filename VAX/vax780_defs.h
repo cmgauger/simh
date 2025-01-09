@@ -1,6 +1,6 @@
 /* vax780_defs.h: VAX 780 model-specific definitions file
 
-   Copyright (c) 2004-2019, Robert M Supnik
+   Copyright (c) 2004-2025, Robert M Supnik
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -23,6 +23,7 @@
    used in advertising or otherwise to promote the sale, use or other dealings
    in this Software without prior written authorization from Robert M Supnik.
 
+   01-JAN-25    CMG     SID register definition updates
    23-Apr-19    RMS     Added hook for unpredictable indexed immediate .aw
    18-May-17    RMS     Added model-specific AST validation test
    19-Jan-17    RMS     Moved CR to BR6 (Mark Pizzolato)
@@ -67,12 +68,15 @@
 
 /* Microcode constructs */
 
-#define VAX780_SID      (1 << 24)                       /* system ID */
-#define VAX780_TYP      (0 << 23)                       /* sys type: 780 */
-#define VAX785_TYP      (1 << 23)                       /* sys type: 785 */
-#define VAX780_ECO      (7 << 19)                       /* ucode revision */
-#define VAX780_PLANT    (0 << 12)                       /* plant (Salem NH) */
-#define VAX780_SN       (1234)
+#define VAX780_SID      (  1 << 24)                     /* system ID */
+#define VAX780_TYP      (  0 << 23)                     /* sys type: 780 */
+#define VAX780_ECO      (129 << 15)                     /* CPU kernal: '8.B' */
+#define VAX780_PLANT    (  0 << 12)                     /* plant: Franklin */
+#define VAX780_SN       (     3228)                     /* serial: FX A3228 */
+#define VAX785_TYP      (  1 << 23)                     /* sys type: 785 */
+#define VAX785_ECO      ( 25 << 15)                     /* CPU kernal: '3.B' */
+#define VAX785_PLANT    (  0 << 12)                     /* plant: Galway */
+#define VAX785_SN       (     2584)                     /* serial: GA 02584 */
 #define CON_HLTPIN      0x0200                          /* external CPU halt */
 #define CON_HLTINS      0x0600                          /* HALT instruction */
 #define MCHK_RD_F       0x00                            /* read fault */

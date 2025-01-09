@@ -1,6 +1,6 @@
 /* vax780_sbi.c: VAX 11/780 SBI
 
-   Copyright (c) 2004-2015, Robert M Supnik
+   Copyright (c) 2004-2025, Robert M Supnik
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -27,6 +27,7 @@
 
    sbi                  bus controller
 
+   09-Jan-2025  CMG     SID register updates
    29-Mar-2015  RMS     Added in-exception test to machine check
    16-Dec-2014  RMS     Removed TQ boot entry (VMB doesn't support tape boot)
    21-Mar-2011  RMS     Added autoreboot capability (Mark Pizzolato)
@@ -381,7 +382,7 @@ switch (rg) {
 
     case MT_SID:                                        /* SID */
         if (sys_model)
-            val = VAX780_SID | VAX785_TYP | VAX780_ECO | VAX780_PLANT | VAX780_SN;
+            val = VAX780_SID | VAX785_TYP | VAX785_ECO | VAX785_PLANT | VAX785_SN;
         else
             val = VAX780_SID | VAX780_TYP | VAX780_ECO | VAX780_PLANT | VAX780_SN;
         break;

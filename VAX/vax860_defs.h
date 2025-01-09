@@ -1,6 +1,6 @@
 /* vax860_defs.h: VAX 8600 model-specific definitions file
 
-   Copyright (c) 2011-2012, Matt Burke
+   Copyright (c) 2011-2025, Matt Burke
    This module incorporates code from SimH, Copyright (c) 2004-2008, Robert M Supnik
 
    Permission is hereby granted, free of charge, to any person obtaining a
@@ -24,6 +24,7 @@
    used in advertising or otherwise to promote the sale, use or other dealings
    in this Software without prior written authorization from the author(s).
 
+   09-Jan-2025  CMG     SID register updates
    26-Dec-2012  MB      First Version
 
    This file covers the VAX 8600, the fourth VAX.
@@ -86,12 +87,15 @@
 
 /* Microcode constructs */
 
-#define VAX860_SID      (4 << 24)                       /* system ID */
-#define VAX860_TYP      (0 << 23)                       /* sys type: 8600 */
-#define VAX865_TYP      (1 << 23)                       /* sys type: 8650 */
-#define VAX860_ECO      (7 << 16)                       /* ucode revision */
-#define VAX860_PLANT    (0 << 12)                       /* plant (say we're simh/undefined) */
-#define VAX860_SN       (1234)
+#define VAX860_SID      ( 4 << 24)                      /* system ID: 04 */
+#define VAX860_TYP      ( 0 << 23)                      /* sys type: 8600 */
+#define VAX860_ECO      (10 << 16)                      /* CPU kernal: 'L' */
+#define VAX860_PLANT    (15 << 12)                      /* plant: Marlboro */
+#define VAX860_SN       (    1356)                      /* serial: MR 01356 */
+#define VAX865_TYP      ( 1 << 23)                      /* sys type: 8650 */
+#define VAX865_ECO      ( 4 << 16)                      /* CPU kernal: 'D' */
+#define VAX865_PLANT    ( 3 << 12)                      /* plant: Galway */
+#define VAX865_SN       (     116)                      /* serial: GA 00116 */
 #define CON_HLTPIN      0x0200                          /* external CPU halt */
 #define CON_HLTINS      0x0600                          /* HALT instruction */
 #define MCHK_RD_F       0x00                            /* read fault */
