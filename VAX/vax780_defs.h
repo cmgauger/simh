@@ -71,11 +71,11 @@
 #define VAX780_SID      (  1 << 24)                     /* system ID */
 #define VAX780_TYP      (  0 << 23)                     /* sys type: 780 */
 #define VAX780_ECO      (129 << 15)                     /* CPU kernal: '8.B' */
-#define VAX780_PLANT    (  0 << 12)                     /* plant: Franklin */
+#define VAX780_PLANT    (  4 << 12)                     /* plant: Franklin */
 #define VAX780_SN       (     3228)                     /* serial: FX A3228 */
 #define VAX785_TYP      (  1 << 23)                     /* sys type: 785 */
 #define VAX785_ECO      ( 25 << 15)                     /* CPU kernal: '3.B' */
-#define VAX785_PLANT    (  0 << 12)                     /* plant: Galway */
+#define VAX785_PLANT    (  1 << 12)                     /* plant: Galway */
 #define VAX785_SN       (     2584)                     /* serial: GA 02584 */
 #define CON_HLTPIN      0x0200                          /* external CPU halt */
 #define CON_HLTINS      0x0600                          /* HALT instruction */
