@@ -783,6 +783,36 @@ t_stat eth_show_devices (FILE* st, DEVICE *dptr, UNIT* uptr, int32 val, CONST ch
 return eth_show (st, uptr, val, NULL);
 }
 
+/* Type-enforcing MAC address copy function.
+ *
+ * This inline helps to prevent the following situation:
+ * 
+ *   void network_func(DEVICE *dev, ETH_MAC *mac)
+ *   {
+ *     ETH_MAC other_mac;
+ * 
+ *     ...
+ *     memcpy(other_mac, mac, sizeof(ETH_MAC));
+ *   }
+ * 
+ * The compiler will happily accept the memcpy() as valid because src and dst are
+ * converted to "void *". This is a subtle bug -- mac is a pointer to an ETH_MAC
+ * and memcpy will copy from somewhere other than the first byte of the source MAC
+ * address.
+ */
+void eth_copy_mac(ETH_MAC dst, const ETH_MAC src)
+{
+  memcpy(dst, src, sizeof(ETH_MAC));
+}
+
+/* Type-enforcing MAC comparison function. Helps to avoid subtle memcmp() issues
+ * (see above).
+ */
+int eth_mac_cmp(const ETH_MAC a, const ETH_MAC b)
+{
+  return memcmp(a, b, sizeof(ETH_MAC));
+}
+
 #if defined (USE_NETWORK) || defined (USE_SHARED)
 
 static const char* _eth_getname(int number, char* name, char *desc)
